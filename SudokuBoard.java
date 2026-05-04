@@ -36,7 +36,7 @@ public class SudokuBoard
 		}
 	}
    
-   public boolean checkData() {
+   private boolean checkData() {
       for (int r = 0; r < 9; r++) {
          for (int c = 0; c < 9; c++) {
             int val = board[r][c];
@@ -48,7 +48,7 @@ public class SudokuBoard
    return true; 
    }
    
-   public boolean checkRows() {
+   private boolean checkRows() {
       for (int r = 0; r < 9; r++) {
          Set<Integer> number = new HashSet<>();
          for (int c = 0; c < 9; c++) {
@@ -63,7 +63,7 @@ public class SudokuBoard
       return true;
    }
    
-   public boolean checkColumns() {
+   private boolean checkColumns() {
       for (int c = 0; c < 9; c++) {
          Set<Integer> number = new HashSet<>();
          for (int r = 0; r < 9; r++) {
@@ -78,7 +78,7 @@ public class SudokuBoard
       return true;
    }   
    
-   public int[][] miniSquare(int spot) {
+   private int[][] miniSquare(int spot) {
       int[][] mini = new int[3][3];
       for(int r = 0; r < 3; r++) {
          for(int c = 0; c < 3; c++) {
@@ -88,7 +88,7 @@ public class SudokuBoard
       return mini;
    }
    
-   public boolean checkSquares() {
+   private boolean checkSquares() {
       for (int spot = 1; spot <= 9; spot++) {
          int[][] mini = miniSquare(spot);
          Set<Integer> seen = new HashSet<>();
@@ -143,7 +143,7 @@ public class SudokuBoard
 		String result = "";
 		for (int r = 0; r < board.length; r++)
 		{
-			for (int c = 0; c < board[r].length; c++)
+			for (int c = 1; c < board[r].length; c++)
 			{
 				// Space at the start of each row
 				if (c == 0)
@@ -187,3 +187,15 @@ public class SudokuBoard
 		return result;
 	}
 }
+
+ /* 
+ Checking empty board...passed.
+ Checking incomplete, valid board...passed.
+ Checking complete, valid board...passed.
+ Checking dirty data board...passed.
+ Checking row violating board...passed.
+ Checking col violating board...passed.
+ Checking row&col violating board...passed.
+ Checking mini-square violating board...passed.
+ **** HORRAY: ALL TESTS PASSED ****
+ */
